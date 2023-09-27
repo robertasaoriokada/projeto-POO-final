@@ -2,8 +2,7 @@ package com.evento.event.entities;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,24 +22,22 @@ public class Casamento {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "lugar", nullable = false)
+    @Column(name = "lugar")
     private String lugar;
 
-    @Column(name = "data_hora", nullable = false)
+    @Column(name = "data_hora")
     private Timestamp data_hora;
 
     @OneToOne
-    @JoinColumn(name = "noivo1", nullable = false)
+    @JoinColumn(name = "noivo1")
     private Pessoa noivo1;
-    private Integer id1;
 
     @OneToOne
-    @JoinColumn(name = "noivo2", nullable = false)
+    @JoinColumn(name = "noivo2")
     private Pessoa noivo2;
-    private Integer id2;
 
     @OneToMany
-    private ArrayList<Pessoa> convidados;
+    private List<Pessoa> convidados;
 
     Casamento() {
 
@@ -97,30 +95,12 @@ public class Casamento {
         this.noivo2 = noivo2;
     }
 
-    public Integer getId1() {
-        return id1;
-    }
-
-    public void setId1(Integer id1) {
-        this.id1 = id1;
-    }
-
-    public Integer getId2() {
-        return id2;
-    }
-
-    public void setId2(Integer id2) {
-        this.id2 = id2;
-    }
-
-    public ArrayList<Pessoa> getConvidados() {
+    public List<Pessoa> getConvidados() {
         return convidados;
     }
 
     public void setConvidados(ArrayList<Pessoa> convidados) {
         this.convidados = convidados;
     }
-
- 
 
 }

@@ -21,7 +21,7 @@ public class PessoaController {
     @Autowired
     PessoaService pessoaService;
 
-    @PostMapping("/create")
+    @PostMapping("/criar")
     public String createPessoa(@RequestBody Pessoa pessoa) {
         if (pessoa == null) {
             return "Não foi possível criar";
@@ -31,7 +31,7 @@ public class PessoaController {
         return "Pessoa criada com sucesso";
     }
 
-    @GetMapping("/listAll")
+    @GetMapping("/listarTudo")
     public Iterable<Pessoa> listarPessoa() {
         return pessoaService.listarPessoas();
     }
@@ -41,15 +41,16 @@ public class PessoaController {
         return pessoaService.listarPessoaPeloId(id);
     }
 
-    @DeleteMapping("deletar/{id}")
+    @DeleteMapping("/deletar/{id}")
     public String deletarPeloId(@PathVariable(name = "id") Integer id) {
         pessoaService.deletarPessoa(id);
         return "Deletado com sucesso";
     }
 
-    @PatchMapping("editar/{id}")
+    @PatchMapping("/editar/{id}")
     public String editarCasamentoPeloId(@PathVariable(name = "id") Integer id, @RequestBody Pessoa pessoa) {
         pessoaService.editarPessoa(id, new Pessoa(pessoa.getNome(), pessoa.getTelefone(), pessoa.getRg()));
         return "Editado";
     }
+
 }

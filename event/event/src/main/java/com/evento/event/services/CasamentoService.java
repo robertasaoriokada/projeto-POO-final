@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.evento.event.entities.Casamento;
+import com.evento.event.entities.Pessoa;
 import com.evento.event.repositories.CasamentoRepo;
 
 @Service
@@ -38,4 +39,7 @@ public class CasamentoService {
         return casamentoRepo.save(casamento.get());
     }
 
+    public void adicionarConvidados(Pessoa convidado, Casamento casamento) {
+        casamento.adicionarConvidados(convidado);
+    }
 }

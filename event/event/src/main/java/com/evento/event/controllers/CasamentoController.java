@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.evento.event.entities.Casamento;
+import com.evento.event.entities.Pessoa;
 import com.evento.event.services.CasamentoService;
 
 @RestController
@@ -21,14 +22,17 @@ public class CasamentoController {
     @Autowired
     CasamentoService casamentoService;
 
-    @PostMapping("/create")
+    @PostMapping("/criar")
     public String createCasamento(@RequestBody Casamento casamento) {
+        if (casamento.getNoivo1() == null || casamento.getNoivo2() == null || casamento == null) {
+            return "Não foi possível criar o casamento";
+        }
         casamentoService.createCasamento(new Casamento(casamento.getLugar(), casamento.getData_hora(),
                 casamento.getNoivo1(), casamento.getNoivo2()));
         return "Casamento criado com sucesso";
     }
 
-    @GetMapping("/listAll")
+    @GetMapping("/listarTodos")
     public Iterable<Casamento> listarCasamentos() {
         return casamentoService.listarCasamentos();
     }
@@ -50,6 +54,12 @@ public class CasamentoController {
                 new Casamento(casamento.getLugar(), casamento.getData_hora(), casamento.getNoivo1(),
                         casamento.getNoivo2()));
         return "Editado";
+    }
+
+    @PostMapping("/adicionarConvidado")
+    public String adicionarConvidados(Pessoa convidado, @RequestBody Casamento casamento) {
+        casamentoService.adicionarConvidados(convidado, casamento);
+        return "Adicionado";
     }
 
 }
