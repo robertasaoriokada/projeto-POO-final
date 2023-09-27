@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,23 +14,20 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "nome", nullable = false)
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "telefone", nullable = false)
+    @Column(name = "telefone")
     private String telefone;
 
-    @Column(name = "rg", nullable = false)
+    @Column(name = "rg")
     private String rg;
-
-    @ManyToOne
-    private Casamento casamento;
 
     Pessoa() {
 
     }
 
-    Pessoa(String nome, String telefone, String rg) {
+    public Pessoa(String nome, String telefone, String rg) {
         this.nome = nome;
         this.telefone = telefone;
         this.rg = rg;
@@ -69,13 +65,4 @@ public class Pessoa {
         this.rg = rg;
     }
 
-    public Casamento getCasamento() {
-        return casamento;
-    }
-
-    public void setCasamento(Casamento casamento) {
-        this.casamento = casamento;
-    }
-
-    
 }

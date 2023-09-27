@@ -29,8 +29,8 @@ public class CasamentoService {
         casamentoRepo.deleteById(id);
     }
 
-    public Casamento editarCasamento(Casamento casamentoEdicao) {
-        Optional<Casamento> casamento = casamentoRepo.findById(casamentoEdicao.getId());
+    public Casamento editarCasamento(Integer id, Casamento casamentoEdicao) {
+        Optional<Casamento> casamento = casamentoRepo.findById(id);
         casamento.get().setLugar(casamentoEdicao.getLugar());
         casamento.get().setData_hora(casamentoEdicao.getData_hora());
         casamento.get().setNoivo1(casamentoEdicao.getNoivo1());

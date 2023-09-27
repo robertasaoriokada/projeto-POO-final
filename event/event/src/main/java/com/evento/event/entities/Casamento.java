@@ -1,6 +1,7 @@
 package com.evento.event.entities;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,13 +31,15 @@ public class Casamento {
     @OneToOne
     @JoinColumn(name = "noivo1", nullable = false)
     private Pessoa noivo1;
+    private Integer id1;
 
     @OneToOne
     @JoinColumn(name = "noivo2", nullable = false)
     private Pessoa noivo2;
+    private Integer id2;
 
     @OneToMany
-    private Set<Pessoa> convidados;
+    private ArrayList<Pessoa> convidados;
 
     Casamento() {
 
@@ -47,7 +50,11 @@ public class Casamento {
         this.data_hora = data_hora;
         this.noivo1 = noivo1;
         this.noivo2 = noivo2;
-        this.convidados = new HashSet<>();
+        this.convidados = new ArrayList<>();
+    }
+
+    public void adicionarConvidados(Pessoa pessoa) {
+        convidados.add(pessoa);
     }
 
     public Integer getId() {
@@ -90,12 +97,30 @@ public class Casamento {
         this.noivo2 = noivo2;
     }
 
-    public Set<Pessoa> getConvidados() {
+    public Integer getId1() {
+        return id1;
+    }
+
+    public void setId1(Integer id1) {
+        this.id1 = id1;
+    }
+
+    public Integer getId2() {
+        return id2;
+    }
+
+    public void setId2(Integer id2) {
+        this.id2 = id2;
+    }
+
+    public ArrayList<Pessoa> getConvidados() {
         return convidados;
     }
 
-    public void setConvidados(Set<Pessoa> convidados) {
+    public void setConvidados(ArrayList<Pessoa> convidados) {
         this.convidados = convidados;
     }
+
+ 
 
 }

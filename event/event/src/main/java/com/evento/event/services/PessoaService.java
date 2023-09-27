@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.evento.event.entities.Casamento;
 import com.evento.event.entities.Pessoa;
 import com.evento.event.repositories.PessoaRepo;
 
@@ -22,7 +21,7 @@ public class PessoaService {
         return pessoaRepo.findAll();
     }
 
-    public Optional<Pessoa> listarPessoaPeloId(Integer id) {
+    public Optional<Pessoa> listarPessoaPeloId(Integer id) { // pode ou não retornar algo
         return pessoaRepo.findById(id);
     }
 
@@ -30,8 +29,8 @@ public class PessoaService {
         pessoaRepo.deleteById(id);
     }
 
-    public Pessoa editarPessoa(Pessoa pessoaEdicao) {
-        Optional<Pessoa> pessoa = pessoaRepo.findById(pessoaEdicao.getId());
+    public Pessoa editarPessoa(Integer id, Pessoa pessoaEdicao) {
+        Optional<Pessoa> pessoa = pessoaRepo.findById(id);
         pessoa.get().setNome(pessoaEdicao.getNome());
         pessoa.get().setTelefone(pessoaEdicao.getTelefone());
         pessoa.get().setRg(pessoaEdicao.getRg());
