@@ -3,6 +3,7 @@ package com.evento.event.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -17,38 +18,43 @@ import com.evento.event.entities.Pessoa;
 import com.evento.event.services.CasamentoService;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/casamento")
 public class CasamentoController {
     @Autowired
     CasamentoService casamentoService;
 
-    @PostMapping("/criar")
-    public String createCasamento(@RequestBody Casamento casamento) {
-        if (casamento.getNoivo1() == null || casamento.getNoivo2() == null || casamento == null) {
-            return "Não foi possível criar o casamento";
+    @PostMapping
+    public String criarCasamento(@RequestBody Casamento casamento) {
+        try {
+            if (casamento.getNoivo1() != null && casamento.getNoivo2() != null) {
+                casamentoService.createCasamento(new Casamento(casamento.getLugar(), casamento.getData_hora(),
+                        casamento.getNoivo1(), casamento.getNoivo2()));
+                return "Casamento criado com sucesso";
+            }
+        } catch (Exception e) {
+            return "Não foi possível criar casamento";
         }
-        casamentoService.createCasamento(new Casamento(casamento.getLugar(), casamento.getData_hora(),
-                casamento.getNoivo1(), casamento.getNoivo2()));
-        return "Casamento criado com sucesso";
+        return null;
     }
 
-    @GetMapping("/listarTodos")
+    @GetMapping
     public Iterable<Casamento> listarCasamentos() {
         return casamentoService.listarCasamentos();
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/{id}")
     public Optional<Casamento> listarCasamentosPeloId(@PathVariable(name = "id") Integer id) {
         return casamentoService.listarCasamentoPeloId(id);
     }
 
-    @DeleteMapping("deletar/{id}")
+    @DeleteMapping("/{id}")
     public String deletarCasamentoPeloId(@PathVariable(name = "id") Integer id) {
         casamentoService.deletarCasamento(id);
         return "Casamento apagado";
     }
 
-    @PatchMapping("editar/{id}")
+    @PatchMapping("/{id}")
     public String editarCasamentoPeloId(@PathVariable(name = "id") Integer id, @RequestBody Casamento casamento) {
         casamentoService.editarCasamento(id,
                 new Casamento(casamento.getLugar(), casamento.getData_hora(), casamento.getNoivo1(),

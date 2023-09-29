@@ -42,4 +42,8 @@ public class CasamentoService {
     public void adicionarConvidados(Pessoa convidado, Casamento casamento) {
         casamento.adicionarConvidados(convidado);
     }
+
+    public void adicionarPratos(Casamento casamento, String entrada, String principal, String sobremesa) {
+
+    }
 }

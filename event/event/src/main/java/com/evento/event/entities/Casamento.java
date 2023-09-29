@@ -12,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -102,5 +101,4 @@ public class Casamento {
     public void setConvidados(ArrayList<Pessoa> convidados) {
         this.convidados = convidados;
     }
-
 }
