@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.evento.event.entities.Casamento;
 import com.evento.event.entities.Pessoa;
 import com.evento.event.repositories.PessoaRepo;
 
@@ -36,5 +37,6 @@ public class PessoaService {
         pessoa.get().setRg(pessoaEdicao.getRg());
         return pessoaRepo.save(pessoa.get());
     }
+
 
 }

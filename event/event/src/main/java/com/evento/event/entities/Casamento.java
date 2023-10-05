@@ -36,6 +36,7 @@ public class Casamento {
     private Pessoa noivo2;
 
     @OneToMany
+    @JoinColumn(name = "convidados")
     private List<Pessoa> convidados;
 
     Casamento() {
@@ -48,10 +49,6 @@ public class Casamento {
         this.noivo1 = noivo1;
         this.noivo2 = noivo2;
         this.convidados = new ArrayList<>();
-    }
-
-    public void adicionarConvidados(Pessoa pessoa) {
-        convidados.add(pessoa);
     }
 
     public Integer getId() {
@@ -98,7 +95,5 @@ public class Casamento {
         return convidados;
     }
 
-    public void setConvidados(ArrayList<Pessoa> convidados) {
-        this.convidados = convidados;
-    }
+
 }

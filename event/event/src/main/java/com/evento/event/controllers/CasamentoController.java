@@ -62,10 +62,10 @@ public class CasamentoController {
         return "Editado";
     }
 
-    @PostMapping("/adicionarConvidado")
-    public String adicionarConvidados(Pessoa convidado, @RequestBody Casamento casamento) {
-        casamentoService.adicionarConvidados(convidado, casamento);
-        return "Adicionado";
-    }
+    // @PostMapping("/adicionarConvidado/{id}")
+    // public String adicionarConvidados(@PathVariable (name = "id") Integer convidado, @RequestBody Casamento casamento) {
+    //     casamentoService.(convidado, casamento);
+    //     return "Adicionado";
+    // }
 
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>PlannerC</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Início</a></li>
+                <li><a href="./pessoasRegistro.html">Registrar pessoas</a></li>
+                <li><a href="./casamentoRegistro.html">Agendar casamentos</a></li>
+                <li><a href="./agenda.html">Agenda</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="modalCasamentos">
+        <form>
+            <label for="lugar">Lugar</label>
+            <input type="text" id="lugar" name="lugar">
+            <label for="telefone">Data e Hora</label>
+            <input type="date" id="data_hora" name="data_hora">
+            <label for="noivos">Cônjuge</label>
+            <input type="text" id="conjuge1" name="conjuge1">
+            <label for="noivos">Cônjuge</label>
+            <input type="text" id="conjuge2" name="conjuge2">
+            <label for="convidados">Convidados (opcional)</label>
+            <input type="text" id="convidado" name="convidado">
+            <button id="btnC">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

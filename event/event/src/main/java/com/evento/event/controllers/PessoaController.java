@@ -48,7 +48,7 @@ public class PessoaController {
     }
 
     @PatchMapping("/{id}")
-    public String editarCasamentoPeloId(@PathVariable(name = "id") Integer id, @RequestBody Pessoa pessoa) {
+    public String editarPessoaPeloId(@PathVariable(name = "id") Integer id, @RequestBody Pessoa pessoa) {
         pessoaService.editarPessoa(id, new Pessoa(pessoa.getNome(), pessoa.getTelefone(), pessoa.getRg()));
         return "Editado";
     }

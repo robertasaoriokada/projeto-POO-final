@@ -8,11 +8,14 @@ import org.springframework.stereotype.Service;
 import com.evento.event.entities.Casamento;
 import com.evento.event.entities.Pessoa;
 import com.evento.event.repositories.CasamentoRepo;
+import com.evento.event.repositories.PessoaRepo;
 
 @Service
 public class CasamentoService {
     @Autowired
     CasamentoRepo casamentoRepo;
+        @Autowired
+    PessoaRepo pessoaRepo;
 
     public void createCasamento(Casamento casamento) {
         casamentoRepo.save(casamento);
@@ -39,11 +42,4 @@ public class CasamentoService {
         return casamentoRepo.save(casamento.get());
     }
 
-    public void adicionarConvidados(Pessoa convidado, Casamento casamento) {
-        casamento.adicionarConvidados(convidado);
-    }
-
-    public void adicionarPratos(Casamento casamento, String entrada, String principal, String sobremesa) {
-
-    }
 }
