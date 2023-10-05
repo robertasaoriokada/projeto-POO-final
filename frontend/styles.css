@@ -1,61 +1,93 @@
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  background-image: url(fotoFundo.png);
+  width: 100vw;
+  height: 100vh;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
-    background-color:cadetblue;
-    width: 100%;
-    height: max-content;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
+  background-color: #cfcfcf;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0 0 70px rgb(185, 181, 181);
 }
 
 ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 a {
-    text-decoration: none;
-    color: black;
-}
-
-a:hover{
-    color: #756161;
+  text-decoration: none;
+  color: black;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 .modalPessoas {
-    background-color:cadetblue;
-    width: 200px;
-    display: flex;
-    border: 1px solid #888;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px;
+  background-color: #cfcfcf;
+  width: 200px;
+  display: flex;
+  border: 1px solid #888;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  box-shadow: 0 0 70px rgb(0, 0, 0);
 }
 
 .modalCasamentos {
-    background-color:cadetblue;
-    width: 200px;
-    display: flex;
-    border: 1px solid #888;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px;
+  background-color: #cfcfcf;
+  width: 200px;
+  border: 1px solid #888;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 0 70px rgb(0, 0, 0);
 }
 
 .main {
-    width: 100%;
-    background-color: #756161;
+  width: 100%;
+  background-color: #756161;
+}
+
+.Presentation {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 90px 70px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnC {
+  background-color: #758e9e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 25px;
+}
+
+.btnC:hover {
+  background-color: #5f6d77;
+}
+
+.input {
+  border: 2px solid #5f6d77;
+  border-radius: 5px;
 }

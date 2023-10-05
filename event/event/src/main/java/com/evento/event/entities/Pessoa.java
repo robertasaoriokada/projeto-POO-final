@@ -1,5 +1,6 @@
 package com.evento.event.entities;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Pessoa {
     @Column(name = "rg")
     private String rg;
 
-    Pessoa() {
+    public Pessoa() {
 
     }
 

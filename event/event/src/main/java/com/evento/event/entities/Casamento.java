@@ -36,7 +36,6 @@ public class Casamento {
     private Pessoa noivo2;
 
     @OneToMany
-    @JoinColumn(name = "convidados")
     private List<Pessoa> convidados;
 
     Casamento() {

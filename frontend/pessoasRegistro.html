@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de pessoas</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./pessoaRegistro.js"></script>
+  </head>
+  <body>
     <header>
-        <h1>PlannerC</h1>
-        <nav>
-            <ul>
-                <li><a href="./pessoasRegistro.html">Registrar pessoas</a></li>
-                <li><a href="./casamentoRegistro.html">Agendar casamentos</a></li>
-                <li><a href="./agenda.html">Agenda</a></li>
-            </ul>
-        </nav>
+      <h1>PlannerC</h1>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Início</a></li>
+          <li><a href="./pessoasRegistro.html">Registrar pessoas</a></li>
+          <li><a href="./casamentoRegistro.html">Agendar casamentos</a></li>
+          <li><a href="./agenda.html">Agenda</a></li>
+        </ul>
+      </nav>
     </header>
-    <div class="pop-up1">
-        <div class="modalPessoas">
-            <form>
-                <label for="name">Nome</label>
-                <input type="text" id="nomePessoa" name="nomePessoa">
-                <label for="telefone">Telefone</label>
-                <input type="text" id="telefonePessoa" name="telefonePessoa">
-                <label for="rg">RG</label>
-                <input type="text" id="rg" name="rg">
-                <button id="btnP">Enviar</button>
-            </form>
-        </div>
+    <div class="Presentation">
+      <div class="modalPessoas">
+        <form>
+          <label for="name">Nome</label>
+          <input type="text" class="input" id="nome" name="nomePessoa" />
+          <label for="telefone">Telefone</label>
+          <input
+            type="text"
+            class="input"
+            id="telefone"
+            name="telefonePessoa"
+          />
+          <label for="rg">RG</label>
+          <input type="text" class="input" id="rg" name="rg" />
+          <button class="btnC">Enviar</button>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>

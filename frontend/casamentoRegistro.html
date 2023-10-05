@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Casamentos</title>
+    <script src="./casamentoRegistro.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>PlannerC</h1>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Início</a></li>
-                <li><a href="./pessoasRegistro.html">Registrar pessoas</a></li>
-                <li><a href="./casamentoRegistro.html">Agendar casamentos</a></li>
-                <li><a href="./agenda.html">Agenda</a></li>
-            </ul>
-        </nav>
+      <h1>PlannerC</h1>
+      <nav>
+        <ul>
+          <li><a class="sublinhado" href="./index.html">Início</a></li>
+          <li>
+            <a class="sublinhado" href="./pessoasRegistro.html"
+              >Registrar pessoas</a
+            >
+          </li>
+          <li>
+            <a class="sublinhado" href="./casamentoRegistro.html"
+              >Agendar casamentos</a
+            >
+          </li>
+          <li><a class="sublinhado" href="./agenda.html">Agenda</a></li>
+        </ul>
+      </nav>
     </header>
-    <div class="modalCasamentos">
+    <div class="Presentation">
+      <div class="modalCasamentos">
         <form>
-            <label for="lugar">Lugar</label>
-            <input type="text" id="lugar" name="lugar">
-            <label for="telefone">Data e Hora</label>
-            <input type="date" id="data_hora" name="data_hora">
-            <label for="noivos">Cônjuge</label>
-            <input type="text" id="conjuge1" name="conjuge1">
-            <label for="noivos">Cônjuge</label>
-            <input type="text" id="conjuge2" name="conjuge2">
-            <label for="convidados">Convidados (opcional)</label>
-            <input type="text" id="convidado" name="convidado">
-            <button id="btnC">Enviar</button>
+          <label for="lugar">Lugar</label><br />
+          <input type="text" class="input" id="lugar" name="lugar" /><br />
+          <label for="data_hora">Data e Hora</label><br />
+          <input
+            type="date"
+            class="input"
+            id="data_hora"
+            name="data_hora"
+          /><br />
+          <label for="conjuge1">Cônjuge</label><br />
+          <input type="text" class="input" id="conjuge1" name="conjuge1" />
+          <label for="conjuge2">Cônjuge</label>
+          <input type="text" class="input" id="conjuge2" name="conjuge2" />
+          <label for="convidados">Convidados (opcional)</label>
+          <input type="text" class="input" id="convidados" name="convidados" />
+          <button class="btnC">Enviar</button>
         </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>

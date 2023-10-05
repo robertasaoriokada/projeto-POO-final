@@ -13,29 +13,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.evento.event.dto.CasamentoDTO;
 import com.evento.event.entities.Casamento;
-import com.evento.event.entities.Pessoa;
 import com.evento.event.services.CasamentoService;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/casamento")
 public class CasamentoController {
     @Autowired
     CasamentoService casamentoService;
 
     @PostMapping
-    public String criarCasamento(@RequestBody Casamento casamento) {
+    public String criarCasamento(@RequestBody CasamentoDTO casamentoDTO) {
         try {
-            if (casamento.getNoivo1() != null && casamento.getNoivo2() != null) {
-                casamentoService.createCasamento(new Casamento(casamento.getLugar(), casamento.getData_hora(),
-                        casamento.getNoivo1(), casamento.getNoivo2()));
+            if (casamentoDTO.noivo1() != null && casamentoDTO.noivo2() != null) {
+                Casamento casamento = new Casamento(casamentoDTO.lugar(), casamentoDTO.data_hora(), casamentoDTO.noivo1(), casamentoDTO.noivo2());
+                casamentoService.createCasamento(casamento);
                 return "Casamento criado com sucesso";
             }
         } catch (Exception e) {
             return "Não foi possível criar casamento";
         }
-        return null;
+        return "Entrou aqui";
     }
 
     @GetMapping
@@ -61,11 +61,5 @@ public class CasamentoController {
                         casamento.getNoivo2()));
         return "Editado";
     }
-
-    // @PostMapping("/adicionarConvidado/{id}")
-    // public String adicionarConvidados(@PathVariable (name = "id") Integer convidado, @RequestBody Casamento casamento) {
-    //     casamentoService.(convidado, casamento);
-    //     return "Adicionado";
-    // }
 
 }

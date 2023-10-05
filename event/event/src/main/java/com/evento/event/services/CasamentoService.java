@@ -6,16 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.evento.event.entities.Casamento;
-import com.evento.event.entities.Pessoa;
 import com.evento.event.repositories.CasamentoRepo;
-import com.evento.event.repositories.PessoaRepo;
 
 @Service
 public class CasamentoService {
     @Autowired
     CasamentoRepo casamentoRepo;
-        @Autowired
-    PessoaRepo pessoaRepo;
 
     public void createCasamento(Casamento casamento) {
         casamentoRepo.save(casamento);
