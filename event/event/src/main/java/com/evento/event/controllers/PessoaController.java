@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.evento.event.dto.PessoaDTO;
 import com.evento.event.entities.Pessoa;
 import com.evento.event.services.PessoaService;
 
@@ -24,12 +25,12 @@ public class PessoaController {
     PessoaService pessoaService;
 
     @PostMapping
-    public String createPessoa(@RequestBody Pessoa pessoa) {
-        if (pessoa == null) {
+    public String createPessoa(@RequestBody PessoaDTO pessoaDTO) {
+        if (pessoaDTO.nome() == null || pessoaDTO.telefone() == null || pessoaDTO.rg() == null) {
             return "Não foi possível criar";
         }
 
-        pessoaService.createPessoa(new Pessoa(pessoa.getNome(), pessoa.getTelefone(), pessoa.getRg()));
+        pessoaService.createPessoa(new Pessoa(pessoaDTO.nome(), pessoaDTO.telefone(), pessoaDTO.rg()));
         return "Pessoa criada com sucesso";
     }
 
